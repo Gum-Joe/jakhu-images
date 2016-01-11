@@ -1,0 +1,12 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+install:
+- docker pull ubuntu:latest
+
+script:
+- docker build -t jakhu/base .
