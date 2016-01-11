@@ -54,8 +54,4 @@ RUN mkdir $VENV
 RUN virtualenv ~/.virtualenv
 RUN source ~/.virtualenv/bin/activate
 RUN echo "source ~/.virtualenv/bin/activate" >> ~/.bashrc
-# java
-RUN sudo apt-get install -y openjdk-7-jre-headless
-# mvn
-RUN sudo apt-get install maven
 CMD echo $HOME
