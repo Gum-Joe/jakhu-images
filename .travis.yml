@@ -6,7 +6,11 @@ services:
   - docker
 
 install:
-- docker pull ubuntu:latest
+  - docker pull ubuntu:latest
 
 script:
-- docker build -t jakhu/base .
+  - docker build -t jakhu/base .
+  - docker build -t jakhu/nodejs .
+after_script:
+  - docker run --name jakhubase jakhu/base
+  - docker run --name jakhunodejs jakhu/nodejs

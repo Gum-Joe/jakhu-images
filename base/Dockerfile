@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Gum-Joe "kishansambhi@hotmail.co.uk"
+ENV JAKHU_WORKER_VERSION 1.0.0
+ENV JAKHU_WORKER_NAME jakhu-docker-ubuntu-base-image
 # Replace shell
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Base image
@@ -54,4 +56,23 @@ RUN mkdir $VENV
 RUN virtualenv ~/.virtualenv
 RUN source ~/.virtualenv/bin/activate
 RUN echo "source ~/.virtualenv/bin/activate" >> ~/.bashrc
-CMD echo $HOME
+
+# Image info
+ENV JAKHU_OS_IMAGE ubuntu
+ENV JAKHU_OS_IMAGE_TAG latest
+ENV JAKHU_DOCKER_IMAGE base
+# Pull images list
+RUN sudo git clone https://github.com/Gum-Joe/jakhu-images /jakhuImages
+RUN sudo chown -R jakhu /jakhuImages
+VOLUME /jakhuImages
+# Create version
+RUN sudo mkdir /metadata
+RUN sudo chown -R jakhu /metadata
+COPY . /jakhutools
+RUN /bin/bash -l -c "source ~/.rvm/scripts/rvm && rvm use $RUBY_VERSION && ruby /jakhutools/versions.rb"
+RUN chmod 700 /metadata/version.sh
+RUN chmod 777 /metadata/version.sh
+RUN sudo chmod 700 /jakhutools/info.sh
+RUN sudo chmod 777 /jakhutools/info.sh
+VOLUME /jakhutools
+CMD /jakhutools/info.sh
