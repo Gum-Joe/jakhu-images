@@ -9,7 +9,9 @@ install:
   - docker pull ubuntu:latest
 
 script:
+  - cd base
   - docker build -t jakhu/base .
+  - cd ../nodejs
   - docker build -t jakhu/nodejs .
 after_script:
   - docker run --name jakhubase jakhu/base
