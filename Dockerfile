@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Gum-Joe "kishansambhi@hotmail.co.uk"
-# Replace sheel
+# Replace shell
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Base image
 # First step: Set up user
@@ -42,7 +42,7 @@ RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN /bin/bash -l -c "curl -sSL https://get.rvm.io | bash -s stable"
 RUN /bin/bash -l -c "rvm use $RUBY_VERSION --install --binary --fuzzy"
 RUN /bin/bash -l -c "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-RUN /bin/bash -l -c "source ~/.rvm/scripts/rvm && rvm use $RUBY_VERSION && gem install bundler rake sass --no-ri --no-rdoc"
+RUN /bin/bash -l -c "source ~/.rvm/scripts/rvm && rvm use $RUBY_VERSION && gem install bundler sass --no-ri --no-rdoc"
 RUN /bin/bash -l -c "echo 'rvm use $RUBY_VERSION' >> /home/jakhu/.bashrc"
 # Python
 RUN sudo apt-get install -y python
