@@ -13,6 +13,15 @@ script:
   - docker build -t jakhu/base .
   - cd ../nodejs
   - docker build -t jakhu/nodejs .
+  - cd ../python
+  - docker build -t jakhu/python .
+  - cd ../ruby
+  - docker build -t jakhu/ruby .
+  - cd ../rails
+  - docker build -t jakhu/rails .
 after_script:
   - docker run --name jakhubase jakhu/base
   - docker run --name jakhunodejs jakhu/nodejs
+  - docker run --name jakhunodejs jakhu/python
+  - docker run --name jakhubase jakhu/ruby
+  - docker run --name jakhubase jakhu/rails

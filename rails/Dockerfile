@@ -1,4 +1,4 @@
-FROM jakhu/base:latest
+FROM jakhu/ruby:latest
 # Builds ruby image
 MAINTAINER Gum-Joe "kishansambhi@hotmail.co.uk"
 # Install rails
