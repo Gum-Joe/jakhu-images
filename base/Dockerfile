@@ -75,4 +75,7 @@ RUN chmod 777 /metadata/version.sh
 RUN sudo chmod 700 /jakhutools/info.sh
 RUN sudo chmod 777 /jakhutools/info.sh
 VOLUME /jakhutools
+# Get runner
+RUN sudo git clone https://github.com/Gum-Joe/jakhu-runner /runner
+RUN sudo chown -R jakhu /runner
 CMD /jakhutools/info.sh
