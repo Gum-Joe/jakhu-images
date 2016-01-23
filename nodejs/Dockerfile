@@ -7,6 +7,9 @@ ENV JAKHU_WORKER_NAME jakhu-docker-ubuntu-nodejs
 ENV JAKHU_OS_IMAGE ubuntu
 ENV JAKHU_OS_IMAGE_TAG latest
 ENV JAKHU_DOCKER_IMAGE nodejs
+# Install nodejs versions
+RUN source /home/jakhu/.nvm/nvm.sh && nvm install v4.2.4
+RUN source /home/jakhu/.nvm/nvm.sh && nvm install v0.10.41
 # Install common nodejs tools - LTS
 RUN source /home/jakhu/.nvm/nvm.sh && nvm use v4.2.4 && npm install -g \
     browserify \
