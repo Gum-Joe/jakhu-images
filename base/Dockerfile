@@ -78,4 +78,5 @@ VOLUME /jakhutools
 # Get runner
 RUN sudo git clone https://github.com/Gum-Joe/jakhu-runner /runner
 RUN sudo chown -R jakhu /runner
+VOLUME /runner
 CMD /jakhutools/info.sh
