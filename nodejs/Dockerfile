@@ -55,5 +55,9 @@ RUN chmod 700 /metadata/version.sh
 RUN chmod 777 /metadata/version.sh
 RUN sudo chmod 700 /jakhutools/info.sh
 RUN sudo chmod 777 /jakhutools/info.sh
+RUN sudo chmod 700 /runner
+RUN sudo chmod 777 /runner
+RUN sudo chmod +s /runner
+VOLUME /runner
 VOLUME /jakhutools
 CMD /jakhutools/info.sh
