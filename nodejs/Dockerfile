@@ -8,21 +8,9 @@ ENV JAKHU_OS_IMAGE ubuntu
 ENV JAKHU_OS_IMAGE_TAG latest
 ENV JAKHU_DOCKER_IMAGE nodejs
 # Install nodejs versions
-RUN source /home/jakhu/.nvm/nvm.sh && nvm install v4.2.4
-RUN source /home/jakhu/.nvm/nvm.sh && nvm install v0.10.41
+RUN source /home/jakhu/.nvm/nvm.sh && nvm install v4.0
 # Install common nodejs tools - LTS
-RUN source /home/jakhu/.nvm/nvm.sh && nvm use v4.2.4 && npm install -g \
-    browserify \
-    bower \
-    express-generator \
-    jake \
-    grunt-cli \
-    gulp-cli \
-    mocha \
-    istanbul \
-    nodemon
-# Install common nodejs tools - 0.10.41
-RUN source /home/jakhu/.nvm/nvm.sh && nvm use v0.10.41 && npm install -g \
+RUN source /home/jakhu/.nvm/nvm.sh && nvm use v4.0 && npm install -g \
     browserify \
     bower \
     express-generator \
